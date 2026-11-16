@@ -1,0 +1,13 @@
+{
+  "name": "conciliacion-recepciones-browser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Conciliación XLSX local en el navegador, sin cargar el libro a un servidor",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve-local.mjs"
+  },
+  "devDependencies": {
+    "pyodide": "314.0.7"
+  }
+}

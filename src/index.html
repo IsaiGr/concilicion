@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conciliación de recepciones</title>
+  <link rel="stylesheet" href="./app.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><h1>Conciliación de recepciones</h1><span class="badge">Procesamiento en este navegador</span></header>
+    <main>
+      <section class="intro"><p class="eyebrow">Control de entradas</p><h2>Del escaneo al resultado, en un solo recorrido.</h2><p>Selecciona un consolidado XLSX, revisa Atención y candidatos, confirma los repartos y descarga el Excel. El libro se procesa aquí; al cerrar o recargar, la revisión se vacía.</p></section>
+      <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+      <div class="work-head"><p class="eyebrow">Revisión temporal en esta pestaña</p><button id="close-button" type="button" class="quiet">Cerrar revisión</button></div>
+      <section id="upload-section" class="card">
+        <div class="step">01 · Archivo</div><h2>Cargar consolidado</h2>
+        <p>El libro no se carga a un servidor. Mantén el archivo original bajo tu control y revisa los resultados antes de utilizarlos.</p>
+        <form id="upload-form"><label for="file-input">Archivo XLSX</label><input id="file-input" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" required><div class="actions"><button id="analyze-button" class="primary" type="submit" disabled>Validar y conciliar</button><span class="hint">Máximo 8 MB · tres o cuatro hojas compatibles</span></div></form>
+      </section>
+      <section id="result-section" hidden>
+        <div class="card result-head"><div><div class="step">02 · Resultado</div><h2>Revisión de la corrida</h2><p>Ninguna asignación se registra en SAP. Los repartos requieren tu confirmación.</p></div><button id="export-button" type="button" class="primary">Descargar resultado XLSX</button></div>
+        <div id="metrics" class="metrics"></div><div id="warnings" class="card" hidden></div>
+        <section class="card"><h3>Requiere atención</h3><p>Revisa estas filas y corrige una copia del archivo de origen cuando corresponda.</p><div id="attention"></div></section>
+        <section class="card"><h3>Partidas procesadas</h3><p>Consulta los candidatos y confirma los repartos que hayas verificado.</p><div id="items"></div><div class="pager"><button id="prev-page" type="button" class="quiet">Anterior</button><span id="page-label"></span><button id="next-page" type="button" class="quiet">Siguiente</button></div></section>
+        <section class="card"><h3>Decisiones confirmadas</h3><div id="decisions"></div></section>
+      </section>
+    </main>
+    <footer>La revisión no se guarda en la aplicación · El Excel descargado queda en tu equipo</footer>
+  </div>
+</body>
+</html>
